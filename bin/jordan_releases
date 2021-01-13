@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative '../lib/jordan_releases'
+
+JordanReleases::CLI.new.call
