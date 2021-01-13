@@ -1,9 +1,10 @@
 class JordanReleases::CLI
   def call
-    puts "Welcome SneakerHead"
-    puts "Please enter a month"
+    puts "\nWelcome SneakerHead\n"
+    puts "\nPlease enter a month\n"
     get_available_months
     get_user_month
+    choosen_month
     #get user input, ask for a month
     #get sneaker releases for that month
     #get user input, select from info provided for specific release date
@@ -16,6 +17,18 @@ class JordanReleases::CLI
     end
 
     def get_user_month
-      @months.each_with_index { |month, index| puts "#{index + 1} #{month}"}
+      puts "Choose a month to see releases"
+      @months.each.with_index(1) { |month, index| puts "#{index} #{month}"}
     end
+
+    def choosen_month
+      choosen_month = gets.strip
+      binding.pry
+    #  if choosen_month.to_i <= @months.length && < 0
+    end
+
+    def valid_month?(input, data)
+      input.to_i <= data.length && input.to_i > 0
+    end
+
 end
