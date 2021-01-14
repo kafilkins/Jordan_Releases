@@ -1,9 +1,4 @@
-1. flow
-2. classes
-  - class relationships
-
-- user is welcomed to App, then is prompted to enter a month?
-- user gets a list of sneaker releases for the month
-- user can then select a sneaker release and it reveals the date of release
-
-classes required - sneaker, cli, scrapper, 
+cli - user is welcomed to the app and a list of months will appear
+    - user is asked to select a month
+    - depending on the month, sneaker releases for that month will be listed
+    - user will be prompted to select a sneaker option, which will reveal release date or they can select a new month or exit

@@ -4,6 +4,7 @@ class JordanReleases::CLI
     get_available_months
     get_user_month
     chosen_month
+    show_sneakers
     #get user input, ask for a month
     #get sneaker releases for that month
     #get user input, select from info provided for specific release date
@@ -29,7 +30,7 @@ class JordanReleases::CLI
 
     def show_sneakers(chosen_month)
       month = @months[chosen_month - 1]
-      puts "Air Jordan 11 #{month}"
+
     end
 
 end
