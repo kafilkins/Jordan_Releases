@@ -9,7 +9,7 @@ class JordanReleases::Month
   end
 
   def self.all
-    JordanReleases::Scraper.scrap_info if @@all.empty?
+    JordanReleases::Scraper.scrap_info(@release_date) if @@all.empty?
     binding.pry
     @@all
   end

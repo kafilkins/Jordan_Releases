@@ -8,6 +8,7 @@ class JordanReleases::Scraper
       @release_date = n.css("span.release-date").text.strip
       @sneaker_name = n.css("h2 a").text.strip
       @price = n.css("span.release-price").text.strip
+
       end
     end
 end
