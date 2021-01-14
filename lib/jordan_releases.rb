@@ -5,6 +5,7 @@ require_relative "./jordan_releases/scraper"
 
 require 'pry'
 require 'nokogiri'
+require 'open-uri'
 
 
 module JordanReleases

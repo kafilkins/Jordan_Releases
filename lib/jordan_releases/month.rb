@@ -9,6 +9,7 @@ class JordanReleases::Month
   end
 
   def self.all
+    JordanReleases::Scraper.scrap_months if @@all.empty?
     @@all
   end
 
