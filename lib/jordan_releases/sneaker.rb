@@ -3,15 +3,19 @@ class JordanReleases::Sneaker
   attr_accessor :name, :release_date
   @@all = []
 
-  def initialize(name, price)
+  def initialize(name)
     @name = name
-    @price = price
+    @release_date = []
     @@all << self
   end
 
   def self.all
-    JordanReleases::Scraper.scrap_info(name) if @@all.empty?
+    JordanReleases::Scraper.scrap_name(name) if @@all.empty?
     @@all
+  end
+
+  def release_date
+    JordanReleases::Scraper.scrape_release_date(self) if @release_date.empty?
   end
 
 end

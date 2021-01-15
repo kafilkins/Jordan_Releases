@@ -24,7 +24,16 @@ class JordanReleases::CLI
 
     def show_sneakers(chosen_month)
       month = @months[chosen_month - 1]
+      month.get_sneakers
       puts "Here are the releases for #{month}"
+      month.events.each.with_index(1) do |event, index|
+        puts "#{index}. #{sneaker.name}"
+      end
+      get_sneakers(month)
+    end
+
+    def get_sneakers
+      @months = JordanReleases::Sneaker.all
     end
 
 end
