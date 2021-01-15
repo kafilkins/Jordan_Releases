@@ -1,17 +1,27 @@
 class JordanReleases::Scraper
-  def self.scrap_info
-    doc = Nokogiri::HTML(open("https://sneakernews.com/air-jordan-release-dates/"))
+
+  def self.scrap_sneaker_name(month)
+    url = "https://sneakernews.com/air-jordan-release-dates/"
+    doc = Nokogiri::HTML(open(url))
     results = doc.css("div.content-box")
 
-      name = n.css("h2 a").text.strip
-      name.each do |n|
-        JordanReleases::Sneaker_date.new(name)
-        binding.pry
+      sneaker_name = results.css("h2 a").text.strip
+      sneaker_name.each do |n|
+          name = n.text
+          binding.pry
+        JordanReleases::Sneaker.new(name)
+      end
       end
 
-      release_date = n.css("span.release-date").text.strip
-      release_date do |d|
-        JordanReleases::release_date.new(release_date)
+  def self.scrape_release_date(sneaker)
+    url = "https://sneakernews.com/air-jordan-release-dates/"
+    doc = Nokogiri::HTML(open(url))
+    results = doc.css("div.content-box")
+
+      release_date = results.css("span.release-date").text.strip
+      release_date.each do |d|
+        date = d.text
+        JordanReleases::Release_date.new(date)
       #@price = n.css("span.release-price").text.strip
 
     end

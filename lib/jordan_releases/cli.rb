@@ -15,25 +15,47 @@ class JordanReleases::CLI
 
     def chosen_month
       chosen_month = gets.strip.to_i
-      show_sneakers(chosen_month) if valid_month?(chosen_month, @months)
+      show_sneakers_for(chosen_month) if valid_month?(chosen_month, @months)
     end
 
     def valid_month?(input, data)
       input.to_i <= data.length && input.to_i > 0
     end
 
-    def show_sneakers(chosen_month)
+    def get_sneakers
+      @sneakers = JordanReleases::Sneaker.all
+    end
+
+    def show_sneakers_for(chosen_month)
       month = @months[chosen_month - 1]
-      month.get_sneakers
+      month.Sneaker.month
       puts "Here are the releases for #{month}"
-      month.events.each.with_index(1) do |event, index|
+      month.sneakers.each.with_index(1) do |event, index|
         puts "#{index}. #{sneaker.name}"
       end
       get_sneakers(month)
     end
 
+    def show_release_date(chosen_month)
+      puts "choose a sneaker to see release date"
+      input = gets.strip
+      month = @months[chosen_month - 1]
+      date = sneaker.release_date[input.to_i -1]
+      puts "Here is the release date for #{sneaker.name}"
+      date
+    end
+
     def get_sneakers
       @months = JordanReleases::Sneaker.all
+    end
+
+    def next_steps
+      puts "Would you like to see another sneaker release date?"
+      @input = gets.strip
+    end
+
+    def complete
+      puts "Good Luck"
     end
 
 end
