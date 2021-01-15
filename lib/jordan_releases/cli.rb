@@ -3,7 +3,6 @@ class JordanReleases::CLI
     puts "\nWelcome SneakerHead\n"
     list_months
     chosen_month
-    show_sneakers
     end
 
     def list_months
@@ -12,10 +11,6 @@ class JordanReleases::CLI
                               "July", "August", "September", "October", "November", "December"]
 
       @months.each.with_index(1) { |month, index| puts "#{index}. #{month}" }
-    end
-
-    def get_user_month
-
     end
 
     def chosen_month
@@ -29,7 +24,7 @@ class JordanReleases::CLI
 
     def show_sneakers(chosen_month)
       month = @months[chosen_month - 1]
-
+      puts "Here are the releases for #{month}"
     end
 
 end

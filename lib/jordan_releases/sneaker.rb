@@ -1,6 +1,6 @@
 class JordanReleases::Sneaker
 
-  attr_accessor :name, :price
+  attr_accessor :name, :release_date
   @@all = []
 
   def initialize(name, price)
@@ -10,7 +10,7 @@ class JordanReleases::Sneaker
   end
 
   def self.all
-    JordanReleases::Scraper.scrap_info if @@all.empty?
+    JordanReleases::Scraper.scrap_info(name) if @@all.empty?
     @@all
   end
 
