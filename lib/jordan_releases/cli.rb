@@ -1,18 +1,28 @@
 class JordanReleases::CLI
   def call
     puts "\nWelcome SneakerHead\n"
-    list_months
-    chosen_month
+    @input = ""
+    until @input == "exit"
+      get_months
+      list_months
+      get_user_month
+      what_next
+    end
+    complete
+    end
+
+    def get_months
+      @months = JordanReleases::Month.all
     end
 
     def list_months
-      puts "Choose a month to see releases"
-      @months = ["January", "February", "March", "April", "May", "June"]
-
-      @months.each.with_index(1) { |month, index| puts "#{index}. #{month}" }
+      puts "Choose a month to see sneaker releases"
+      @months.each.with_index(1) do |month, index|
+        puts "#{index}. #{month.name}"
+      end
     end
 
-    def chosen_month
+    def get_user_month
       chosen_month = gets.strip.to_i
       show_sneakers_for(chosen_month) if valid_month?(chosen_month, @months)
     end
@@ -21,31 +31,21 @@ class JordanReleases::CLI
       input.to_i <= data.length && input.to_i > 0
     end
 
-    def get_sneakers
-      @sneakers = JordanReleases::Sneaker.all
-    end
-
     def show_sneakers_for(chosen_month)
       month = @months[chosen_month - 1]
-      month.Sneaker.month
-      puts "Here are the releases for #{month}"
-      month.sneakers.each.with_index(1) do |event, index|
+      month.get_sneakers
+      puts "Here are the releases for #{month.name}"
+      month.sneakers.each.with_index(1) do |sneaker, index|
         puts "#{index}. #{sneaker.name}"
       end
       get_sneakers(month)
     end
 
-    def show_release_date(chosen_month)
-      puts "choose a sneaker to see release date"
+    def show_release_date(sneaker)
+      puts "Choose a sneaker to see release date"
       input = gets.strip
-      month = @months[chosen_month - 1]
-      date = sneaker.release_date[input.to_i -1]
-      puts "Here is the release date for #{sneaker.name}"
-      date
-    end
-
-    def get_sneakers
-      @months = JordanReleases::Sneaker.all
+      date = sneakers.month[input.to_i - 1]
+      date(sneaker)
     end
 
     def next_steps

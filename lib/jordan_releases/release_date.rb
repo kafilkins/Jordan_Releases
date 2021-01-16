@@ -1,17 +1,22 @@
 class JordanReleases::Release_date
 
-  attr_accessor :date
+  attr_accessor :date, :month, :sneaker
   @@all = []
 
-  def initialize
+  def initialize(date, month, sneaker)
     @date = date
+    @month = month
+    @sneaker = sneaker
+    add_to_sneaker
     @@all << self
   end
 
   def self.all
-    JordanReleases::Scraper.scrap_info(release_date) if @@all.empty?
-    binding.pry
     @@all
+  end
+
+  def add_to_sneaker
+    @sneaker.date << self unless @sneaker.date.include?(self)
   end
 
 end

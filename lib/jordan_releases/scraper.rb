@@ -1,37 +1,42 @@
 class JordanReleases::Scraper
 
-  def self.scrap_sneaker_name(month)
-    url = "https://sneakernews.com/air-jordan-release-dates/"
+  def self.scrap_months
+    url = "https://solecollector.com/sneaker-release-dates/air-jordan-release-dates/"
     doc = Nokogiri::HTML(open(url))
-    results = doc.css("div.content-box")
+    month = doc.css("div.clg-releases__date__month")
+    month.each do |m|
+      name = m.text
+      JordanReleases::Month.new(name)
+    end
+  end
 
-      sneaker_name = results.css("h2 a").text.strip
-      sneaker_name.each do |n|
-          name = n.text
-          binding.pry
-        JordanReleases::Sneaker.new(name)
+  def self.scrap_sneaker_name(month)
+    url = "https://solecollector.com/sneaker-release-dates/air-jordan-release-dates/"
+    doc = Nokogiri::HTML(open(url))
+    sneakers = doc.css("div.sneaker-release__title")
+
+    sneakers.each do |s|
+      title = sneakers.text.strip
+      month = doc.css("div.clg-releases__date__month")
+      release_date = doc.css("div.clg-releases__date__day")
+    #{ |n| sneaker = n.text.strip }
+        JordanReleases::Sneaker.new(title, month, release_date )
       end
       end
 
   def self.scrape_release_date(sneaker)
-    url = "https://sneakernews.com/air-jordan-release-dates/"
+    url = "https://solecollector.com/sneaker-release-dates/air-jordan-release-dates/"
     doc = Nokogiri::HTML(open(url))
-    results = doc.css("div.content-box")
-
-      release_date = results.css("span.release-date").text.strip
-      release_date.each do |d|
+    release_date = page.css("div.clg-releases__date__day")
+    release_date.each do |d|
         date = d.text
         JordanReleases::Release_date.new(date)
-      #@price = n.css("span.release-price").text.strip
-
-    end
+      end
   end
 end
 
 #site= "https://solecollector.com/sneaker-release-dates/air-jordan-release-dates/"
-
 #page = Nokogiri::HTML(open(site))
-
 #month = page.css("div.clg-releases__date__month")
 #day = page.css("div.clg-releases__date__day")
 #name = page.css("div.sneaker-release__title")
