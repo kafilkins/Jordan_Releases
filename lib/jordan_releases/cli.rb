@@ -7,8 +7,7 @@ class JordanReleases::CLI
 
     def list_months
       puts "Choose a month to see releases"
-      @months = ["January", "February", "March", "April", "May", "June",
-                              "July", "August", "September", "October", "November", "December"]
+      @months = ["January", "February", "March", "April", "May", "June"]
 
       @months.each.with_index(1) { |month, index| puts "#{index}. #{month}" }
     end

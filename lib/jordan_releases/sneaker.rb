@@ -24,3 +24,19 @@ class JordanReleases::Sneaker
   end
 
 end
+
+#case input
+#when 1
+#  puts sneakers.month.name
+#when 2
+#  puts sneakers.month.name
+#when 3
+#  puts sneakers.month.name
+#when 4
+#  puts sneakers.month.name
+#when 5
+#  puts sneakers.month.name
+#when 6
+#  puts sneakers.month.name
+#else
+#  puts "invalid"
