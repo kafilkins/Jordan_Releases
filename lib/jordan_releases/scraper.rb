@@ -27,3 +27,11 @@ class JordanReleases::Scraper
     end
   end
 end
+
+#site= "https://solecollector.com/sneaker-release-dates/air-jordan-release-dates/"
+
+#page = Nokogiri::HTML(open(site))
+
+#month = page.css("div.clg-releases__date__month")
+#day = page.css("div.clg-releases__date__day")
+#name = page.css("div.sneaker-release__title")
