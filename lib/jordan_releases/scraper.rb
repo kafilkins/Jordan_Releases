@@ -5,7 +5,8 @@ class JordanReleases::Scraper
     doc = Nokogiri::HTML(open(url))
     month = doc.css("div.clg-releases__date__month")
     month.each do |m|
-      name = m.text
+      name = m.text.strip
+      sneaker = doc.css("div.sneaker-release__title")
       JordanReleases::Month.new(name)
     end
   end

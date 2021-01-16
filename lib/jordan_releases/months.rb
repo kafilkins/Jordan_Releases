@@ -5,7 +5,7 @@ class JordanReleases::Month
 
   def initialize(name)
     @name = name
-    @sneakers = []
+    @sneakers = sneakers
     @@all << self
   end
 
@@ -15,11 +15,11 @@ class JordanReleases::Month
   end
 
   def get_sneakers
-    JordanReleases::Scraper.scrap_sneaker_name(self) if @sneakers.empty?
+    JordanReleases::Scraper.scrap_sneaker_name(self)
   end
 
-  def release_date
-    JordanReleases::Scraper.scrape_release_date(self) if @release_date.empty?
-  end
+#  def release_date
+#    JordanReleases::Scraper.scrape_release_date(self) if @release_date.empty?
+#  end
 
 end

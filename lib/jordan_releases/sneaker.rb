@@ -1,6 +1,6 @@
 class JordanReleases::Sneaker
 
-  attr_accessor :name, :release_date, :month
+  attr_accessor :name, :month, :release_date
   @@all = []
 
   def initialize(name, month, release_date)
