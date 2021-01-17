@@ -4,25 +4,21 @@ class JordanReleases::CLI
     @input = ""
     until @input == "exit"
       get_months
-      list_months
-      get_user_month
+      get_chosen_month
       what_next
     end
     complete
     end
 
     def get_months
-      @months = JordanReleases::Month.all
-    end
-
-    def list_months
+      @months = ["January", "February", "March", "April", "May", "June"]
       puts "Choose a month to see sneaker releases"
       @months.each.with_index(1) do |month, index|
-        puts "#{index}. #{month.name}"
-      end
+        puts "#{index}. #{month}"
+    end
     end
 
-    def get_user_month
+    def get_chosen_month
       chosen_month = gets.strip.to_i
       show_sneakers_for(chosen_month) if valid_month?(chosen_month, @months)
     end
@@ -38,13 +34,13 @@ class JordanReleases::CLI
       month.sneakers.each.with_index(1) do |sneaker, index|
         puts "#{index}. #{sneaker.name}"
       end
-      get_sneakers(month)
+      show_release_date(month)
     end
 
     def show_release_date(sneaker)
       puts "Choose a sneaker to see release date"
       input = gets.strip
-      date = sneakers.month[input.to_i - 1]
+      date = sneaker.month[input.to_i - 1]
       date(sneaker)
     end
 

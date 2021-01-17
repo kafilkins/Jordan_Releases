@@ -7,24 +7,24 @@ class JordanReleases::Sneaker
     @name = name
     @month = month
     @release_date = []
-    add_to_month
-    @@all << self
+  #  add_to_month
+    save
   end
 
   def self.all
     @@all
   end
 
-  def add_to_month
-    @month.sneakers << self unless @month.sneakers.include?(self)
-  end
+#  def add_to_month
+#    @month.sneakers << self unless @month.sneakers.include?(self)
+#  end
 
   def release_date
     JordanReleases::Scraper.scrape_release_date(self) if @release_date.empty?
   end
 
-  def month
-    @month
+  def save
+    @@all << self
   end
 
 end
