@@ -1,10 +1,10 @@
-class JordanReleases::Release_date
+class JordanReleases::Release_day
 
-  attr_accessor :date, :month, :sneaker
+  attr_accessor :day, :month, :sneaker
   @@all = []
 
-  def initialize(date, month, sneaker)
-    @date = date
+  def initialize(day, month, sneaker)
+    @day = day
     @month = month
     @sneaker = sneaker
     add_to_sneaker
@@ -16,7 +16,7 @@ class JordanReleases::Release_date
   end
 
   def add_to_sneaker
-    @sneaker.date << self unless @sneaker.date.include?(self)
+    @sneaker.day << self unless @sneaker.day.include?(self)
   end
 
 end

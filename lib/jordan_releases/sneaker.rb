@@ -1,18 +1,18 @@
 class JordanReleases::Sneaker
 
-  attr_accessor :name, :month, :release_date
+  attr_accessor :title, :month, :day
   @@all = []
 
-  def initialize(name, month, release_date)
-    @name = name
+  def initialize(title)
+    @title = title
     @month = month
-    @release_date = []
-  #  add_to_month
+    @day = day
+    #add_to_month
     save
   end
 
   def self.all
-    @@all
+      JordanReleases::Scraper.scrap_sneaker_name(self) if @@all.empty?
   end
 
 #  def add_to_month
@@ -20,7 +20,7 @@ class JordanReleases::Sneaker
 #  end
 
   def release_date
-    JordanReleases::Scraper.scrape_release_date(self) if @release_date.empty?
+    JordanReleases::Scraper.scrape_release_day(self) if @release_day.empty?
   end
 
   def save

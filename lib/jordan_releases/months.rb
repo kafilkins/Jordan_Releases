@@ -14,9 +14,9 @@ class JordanReleases::Month
     @@all
   end
 
-  def get_sneakers
-    JordanReleases::Scraper.scrap_sneaker_name(self) if @sneakers.empty?
-  end
+  #def get_sneakers
+  #  JordanReleases::Scraper.scrap_sneaker_name(self) if @sneakers.empty?
+  #end
 
   def save
     @@all << self
