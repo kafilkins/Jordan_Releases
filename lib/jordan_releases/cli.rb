@@ -2,8 +2,8 @@ class JordanReleases::CLI
   def call
     puts "\nWelcome SneakerHead\n"
     @input = ""
-      until @input == "exit"
     give_months
+      until @input == "exit"
       case get_chosen_month
       when 1
         january_sneaker_releases
@@ -62,38 +62,27 @@ class JordanReleases::CLI
 
     def january_sneaker_releases
       puts "Here are the releases for January"
-      puts " " #creates an extra line for appearances sake
       JordanReleases::Sneaker.all
-      puts " " #creates an extra line for appearances sake
     end
 
     def february_sneaker_releases
       puts "Here are the releases for February"
-      puts " " #creates an extra line for appearances sake
     end
 
     def march_sneaker_releases
       puts "Here are the releases for March"
-
-      puts " " #creates an extra line for appearances sake
     end
 
     def april_sneaker_releases
-      puts " " #creates an extra line for appearances sake
       puts "Here are the releases for April"
-      puts " " #creates an extra line for appearances sake
     end
 
     def may_sneaker_releases
-      puts " " #creates an extra line for appearances sake
       puts "Here are the releases for May"
-      puts " " #creates an extra line for appearances sake
     end
 
     def june_sneaker_releases
-      puts " " #creates an extra line for appearances sake
       puts "Here are the releases for June"
-      puts " " #creates an extra line for appearances sake
     end
 
     def complete

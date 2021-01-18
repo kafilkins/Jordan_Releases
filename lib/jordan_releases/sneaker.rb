@@ -14,10 +14,8 @@ class JordanReleases::Sneaker
 
   def self.all
       JordanReleases::Scraper.scrape_sneaker_title_january(self) if @@all.empty?
-      binding.pry
       #JordanReleases::Scraper.scrape_sneaker_title_february(self)
   end
-
 
   def save
     @@all << self
