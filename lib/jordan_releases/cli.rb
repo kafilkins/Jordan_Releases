@@ -7,27 +7,21 @@ class JordanReleases::CLI
       case get_chosen_month
       when 1
         january_sneaker_releases
-        list_sneakers
         release_day
       when 2
         february_sneaker_releases
-        list_sneakers
         release_day
       when 3
         march_sneaker_releases
-        list_sneakers
         release_day
       when 4
         april_sneaker_releases
-        list_sneakers
         release_day
       when 5
         may_sneaker_releases
-        list_sneakers
         release_day
       when 6
         june_sneaker_releases
-        list_sneakers
         release_day
       else
         puts "invalid"
@@ -41,14 +35,10 @@ class JordanReleases::CLI
       @months.each.with_index(1) do |month, index|
         puts "#{index}. #{month}"
     end
-    end
-
-    def list_sneakers
-      puts "Jordan 11"
-    end
+  end
 
     def release_day
-      puts "Would you like to see the release day for your selection (yes), see another (month), or exit (exit)?"
+      puts "Would you like to see the release day for a sneaker, see another (month), or exit (exit)?"
       @input = gets.strip
       if @input == "exit"
         complete
@@ -59,7 +49,7 @@ class JordanReleases::CLI
           puts "Would you like to see another month (month) or exit (exit)?"
           input = gets.strip
         end
-end
+    end
 
     def get_chosen_month
       chosen_month = gets.strip.to_i
@@ -72,27 +62,38 @@ end
 
     def january_sneaker_releases
       puts "Here are the releases for January"
-      JordanReleases::Sneaker
+      puts " " #creates an extra line for appearances sake
+      JordanReleases::Sneaker.all
+      puts " " #creates an extra line for appearances sake
     end
 
     def february_sneaker_releases
       puts "Here are the releases for February"
+      puts " " #creates an extra line for appearances sake
     end
 
     def march_sneaker_releases
       puts "Here are the releases for March"
+
+      puts " " #creates an extra line for appearances sake
     end
 
     def april_sneaker_releases
+      puts " " #creates an extra line for appearances sake
       puts "Here are the releases for April"
+      puts " " #creates an extra line for appearances sake
     end
 
     def may_sneaker_releases
+      puts " " #creates an extra line for appearances sake
       puts "Here are the releases for May"
+      puts " " #creates an extra line for appearances sake
     end
 
     def june_sneaker_releases
+      puts " " #creates an extra line for appearances sake
       puts "Here are the releases for June"
+      puts " " #creates an extra line for appearances sake
     end
 
     def complete
