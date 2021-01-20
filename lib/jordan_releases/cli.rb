@@ -6,7 +6,7 @@ class JordanReleases::CLI
       until @input == "exit"
       case get_chosen_month
       when 1
-        january_sneaker_releases
+        january_sneaker_releases(@months)
         release_day
       when 2
         february_sneaker_releases
@@ -45,10 +45,19 @@ class JordanReleases::CLI
       elsif @input == "month"
         give_months
       else @input == "yes"
-          puts "January 10th"
-          puts "Would you like to see another month (month) or exit (exit)?"
-          input = gets.strip
+          puts "January 12th"
+          next_steps
         end
+    end
+
+    def next_steps
+      puts "Would you like to see another month (month) or exit (exit)?"
+      @input = gets.strip
+    if @input == "exit"
+      complete
+    else @input == "month"
+        give_months
+      end
     end
 
     def get_chosen_month
@@ -60,9 +69,9 @@ class JordanReleases::CLI
       @input.to_i <= data.length && input.to_i > 0
     end
 
-    def january_sneaker_releases
+    def january_sneaker_releases(month)
       puts "Here are the releases for January"
-      JordanReleases::Sneaker.all
+      month = JordanReleases::Sneaker.all
     end
 
     def february_sneaker_releases
