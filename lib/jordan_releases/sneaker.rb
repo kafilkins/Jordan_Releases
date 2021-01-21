@@ -16,4 +16,5 @@ class JordanReleases::Sneaker
       JordanReleases::Scraper.scrape_sneaker_title_january(self) if @@all.empty?
       #JordanReleases::Scraper.scrape_sneaker_title_february(self)
   end
+
 end
