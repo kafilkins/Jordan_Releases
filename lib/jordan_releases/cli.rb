@@ -72,6 +72,8 @@ class JordanReleases::CLI
     def january_sneaker_releases
       puts "Here are the releases for January"
       JordanReleases::Scraper.scrape_sneaker_title_january
+    #  JordanReleases::Sneaker.release_month
+      JordanReleases::Sneaker.sneaker_name
     end
 
     def february_sneaker_releases

@@ -9,11 +9,12 @@ class JordanReleases::Scraper
     day = row.css(".clg-releases__date__day").text
     release_date = "#{month} - #{day}"
     title = row.css(".sneaker-release__title").text
-    JordanReleases::Sneaker.new(title, release_date)
-  end
-  end
 
-def self.scrape_sneaker_title_february(month)
+    JordanReleases::Sneaker.new(title, release_date, month)
+  end
+end
+
+  def self.scrape_sneaker_title_february(month)
   site= "https://solecollector.com/sneaker-release-dates/air-jordan-release-dates/2021/02/"
   doc = Nokogiri::HTML(open(site))
 
