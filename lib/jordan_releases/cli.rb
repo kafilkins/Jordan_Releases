@@ -4,9 +4,9 @@ class JordanReleases::CLI
     @input = ""
     give_months
       until @input == "exit"
-      case get_chosen_month
+          case get_chosen_month
       when 1
-        january_sneaker_releases(@months)
+        january_sneaker_releases
         release_day
       when 2
         february_sneaker_releases
@@ -69,9 +69,9 @@ class JordanReleases::CLI
       @input.to_i <= data.length && input.to_i > 0
     end
 
-    def january_sneaker_releases(month)
+    def january_sneaker_releases
       puts "Here are the releases for January"
-      month = JordanReleases::Sneaker.all
+      JordanReleases::Scraper.scrape_sneaker_title_january
     end
 
     def february_sneaker_releases

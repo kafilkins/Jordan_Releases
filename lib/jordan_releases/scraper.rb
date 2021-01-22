@@ -1,6 +1,6 @@
 class JordanReleases::Scraper
 
-  def self.scrape_sneaker_title_january(month)
+  def self.scrape_sneaker_title_january
     site= "https://solecollector.com/sneaker-release-dates/air-jordan-release-dates/2021/01/"
     doc = Nokogiri::HTML(open(site))
 
