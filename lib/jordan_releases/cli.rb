@@ -45,7 +45,7 @@ class JordanReleases::CLI
       elsif @input == "month"
         give_months
       else @input == "yes"
-          puts "January 12th"
+          JordanReleases::Sneaker.release_date
           next_steps
         end
     end
