@@ -17,13 +17,7 @@ class JordanReleases::Sneaker
       @@all
   end
 
-#  def show_titles
-#    @@all.each.with_index(1) do |name, index|
-#      puts "#{index}. #{name.title}"
-#    end
-#  end
-
-    def self.release_month
+    def self.release_month_jan
       new_array = []
       self.all.each do |sneakers|
         if sneakers.month == "Jan"
@@ -33,15 +27,37 @@ class JordanReleases::Sneaker
     new_array
   end
 
-  def self.sneaker_name
-    self.release_month.each.with_index(1) do |name, index|
+  def self.sneaker_name_jan
+    self.release_month_jan.each.with_index(1) do |name, index|
       puts "#{index}. #{name.title}"
     end
   end
 
-    def self.title_release_day
-      self.release_month.map do |day|
-        puts "#{day.release_date}"
+    def self.title_release_day_jan
+      self.release_month_jan.each.with_index(1) do |day, index|
+        puts "#{index}. #{day.release_date}"
+      end
+    end
+
+    def self.release_month_feb
+      new_array = []
+      self.all.each do |sneakers|
+        if sneakers.month == "Feb"
+        new_array << sneakers
+      end
+    end
+    new_array
+  end
+
+  def self.sneaker_name_feb
+    self.release_month_feb.each.with_index(1) do |name, index|
+      puts "#{index}. #{name.title}"
+    end
+  end
+
+    def self.title_release_day_feb
+      self.release_month_feb.each.with_index(1) do |day, index|
+        puts "#{index}. #{day.release_date}"
       end
     end
 

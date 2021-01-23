@@ -38,7 +38,7 @@ class JordanReleases::CLI
   end
 
     def release_titles
-      puts "Would you like to see the release day for a sneaker, see another (month), or exit (exit)?"
+      puts "Would you like to see the release days for a each sneaker (yes), see another (month), or exit (exit)?"
       @input = gets.strip
       if @input == "exit"
         complete
@@ -51,7 +51,7 @@ class JordanReleases::CLI
     end
 
     def exact_date
-      JordanReleases::Sneaker.title_release_day
+      JordanReleases::Sneaker.title_release_day_jan
     end
 
     def next_steps
@@ -76,11 +76,13 @@ class JordanReleases::CLI
     def january_sneaker_releases
       puts "Here are the releases for January"
       JordanReleases::Scraper.scrape_sneaker_title_january
-      JordanReleases::Sneaker.sneaker_name
+      JordanReleases::Sneaker.sneaker_name_jan
     end
 
     def february_sneaker_releases
       puts "Here are the releases for February"
+      JordanReleases::Scraper.scrape_sneaker_title_february
+      JordanReleases::Sneaker.sneaker_name_feb
     end
 
     def march_sneaker_releases
