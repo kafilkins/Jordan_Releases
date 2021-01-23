@@ -17,11 +17,11 @@ class JordanReleases::Sneaker
       @@all
   end
 
-  def show_titles
-    @@all.each.with_index(1) do |name, index|
-      puts "#{index}. #{name.title}"
-    end
-  end
+#  def show_titles
+#    @@all.each.with_index(1) do |name, index|
+#      puts "#{index}. #{name.title}"
+#    end
+#  end
 
     def self.release_month
       new_array = []
@@ -38,4 +38,11 @@ class JordanReleases::Sneaker
       puts "#{index}. #{name.title}"
     end
   end
+
+    def self.title_release_day
+      self.release_month.map do |day|
+        puts "#{day.release_date}"
+      end
+    end
+
 end
