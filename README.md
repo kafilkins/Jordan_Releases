@@ -1,6 +1,6 @@
 # JordanReleases
 
-Find out the latest Jordan Retro releases and the dates they will be released.
+This application allows a user to see the Air Jordan sneaker release dates for the months between January through June. The user can see the sneaker names that will be released for a given month and can also see the corresponding release dates for when the sneakers will be released for purchase.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Once you've installed the application and have ensured you are in the Jordan_Releases file, you can run the program by typing the following in your terminal, (./bin/jordan_releases). You will then be prompted to select a month to be given the Air Jordan sneaker rleases for the selected month. Once the month is selected, a list will be populated with the names of the sneaker releases for that month. The user will then have the option to see the exact release dates (Month - Day) for the sneakers listed in that month, go back to the list of months so see other sneaker releases or exit the program.
 
 ## Development
 

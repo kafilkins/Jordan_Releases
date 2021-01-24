@@ -86,4 +86,3 @@ end
 
 end
 
-#release_month.text + (" ") + release_day.text

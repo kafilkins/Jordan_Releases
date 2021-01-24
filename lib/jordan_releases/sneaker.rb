@@ -1,6 +1,6 @@
 class JordanReleases::Sneaker
 
-  attr_accessor :title #:month, :price, :day
+  attr_accessor :title
   attr_reader :release_date, :month
   @@all = []
 
@@ -8,8 +8,6 @@ class JordanReleases::Sneaker
     @title = title
     @release_date = release_date
     @month = month
-  #  @price = price
-  #  @day = day
     @@all << self
   end
 
