@@ -38,29 +38,52 @@ class JordanReleases::CLI
   end
 
     def release_titles
-      puts "Would you like to see the release days for a each sneaker (yes), see another (month), or exit (exit)?"
+      puts "Would you like to see the release days for each sneaker (yes), see another (month), or exit (exit)?"
       @input = gets.strip
       if @input == "exit"
         complete
       elsif @input == "month"
         give_months
-      else @input == "yes"
+      elsif @input == "yes"
           exact_date
           next_steps
+        else
+          puts "invalid"
+          release_titles
         end
     end
 
     def exact_date
-      JordanReleases::Sneaker.title_release_day_jan
-    end
+      puts "Type month..."
+      @input = gets.strip
+      if @input == "January"
+        JordanReleases::Sneaker.title_release_day_jan
+      elsif @input == "February"
+        JordanReleases::Sneaker.title_release_day_feb
+      elsif @input == "March"
+        JordanReleases::Sneaker.title_release_day_mar
+      elsif @input == "April"
+        JordanReleases::Sneaker.title_release_day_apr
+      elsif @input == "May"
+        JordanReleases::Sneaker.title_release_day_may
+      elsif @input == "June"
+        JordanReleases::Sneaker.title_release_day_jun
+      else
+        puts "invalid"
+        exact_date
+      end
+      end
 
     def next_steps
       puts "Would you like to see another month (month) or exit (exit)?"
       @input = gets.strip
     if @input == "exit"
       complete
-    else @input == "month"
+    elsif @input == "month"
         give_months
+      else
+        puts "invalid"
+        next_steps
       end
     end
 
@@ -87,18 +110,26 @@ class JordanReleases::CLI
 
     def march_sneaker_releases
       puts "Here are the releases for March"
+      JordanReleases::Scraper.scrape_sneaker_title_march
+      JordanReleases::Sneaker.sneaker_name_mar
     end
 
     def april_sneaker_releases
       puts "Here are the releases for April"
+      JordanReleases::Scraper.scrape_sneaker_title_april
+      JordanReleases::Sneaker.sneaker_name_apr
     end
 
     def may_sneaker_releases
       puts "Here are the releases for May"
+      JordanReleases::Scraper.scrape_sneaker_title_may
+      JordanReleases::Sneaker.sneaker_name_may
     end
 
     def june_sneaker_releases
       puts "Here are the releases for June"
+      JordanReleases::Scraper.scrape_sneaker_title_june
+      JordanReleases::Sneaker.sneaker_name_jun
     end
 
     def complete

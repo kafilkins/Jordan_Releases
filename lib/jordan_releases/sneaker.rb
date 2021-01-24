@@ -61,4 +61,92 @@ class JordanReleases::Sneaker
       end
     end
 
+    def self.release_month_mar
+      new_array = []
+      self.all.each do |sneakers|
+        if sneakers.month == "Mar"
+        new_array << sneakers
+      end
+    end
+    new_array
+  end
+
+  def self.sneaker_name_mar
+    self.release_month_mar.each.with_index(1) do |name, index|
+      puts "#{index}. #{name.title}"
+    end
+  end
+
+    def self.title_release_day_mar
+      self.release_month_mar.each.with_index(1) do |day, index|
+        puts "#{index}. #{day.release_date}"
+      end
+    end
+
+    def self.release_month_apr
+      new_array = []
+      self.all.each do |sneakers|
+        if sneakers.month == "Apr"
+        new_array << sneakers
+      end
+    end
+    new_array
+  end
+
+  def self.sneaker_name_apr
+    self.release_month_apr.each.with_index(1) do |name, index|
+      puts "#{index}. #{name.title}"
+    end
+  end
+
+    def self.title_release_day_apr
+      self.release_month_apr.each.with_index(1) do |day, index|
+        puts "#{index}. #{day.release_date}"
+      end
+    end
+
+    def self.release_month_may
+      new_array = []
+      self.all.each do |sneakers|
+        if sneakers.month == "May"
+        new_array << sneakers
+      end
+    end
+    new_array
+  end
+
+  def self.sneaker_name_may
+    self.release_month_may.each.with_index(1) do |name, index|
+      puts "#{index}. #{name.title}"
+    end
+  end
+
+    def self.title_release_day_may
+      self.release_month_may.each.with_index(1) do |day, index|
+        puts "#{index}. #{day.release_date}"
+      end
+    end
+
+    def self.release_month_jun
+      new_array = []
+      self.all.each do |sneakers|
+        if sneakers.month == "Jun"
+        new_array << sneakers
+      end
+    end
+    new_array
+  end
+
+  def self.sneaker_name_jun
+    self.release_month_jun.each.with_index(1) do |name, index|
+      puts "#{index}. #{name.title}"
+    end
+  end
+
+    def self.title_release_day_jun
+      self.release_month_jun.each.with_index(1) do |day, index|
+        puts "#{index}. #{day.release_date}"
+      end
+    end
+
 end
