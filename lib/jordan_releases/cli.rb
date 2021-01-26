@@ -37,6 +37,31 @@ class JordanReleases::CLI
     end
   end
 
+#  def sneaker_release_titles #new code
+#    JordanReleases::Sneaker.month(@month).each.with_index(1) do |sneaker, index|
+#      puts "#{index}. #{sneaker.title}"
+#    end
+#  end
+
+#  def choose_sneaker_release_date #new code
+#    input = gets.strip.to_i
+#    puts "Select a sneaker to see it's release date"
+#    max_value = JordanReleases::Sneaker.month(@month).length
+#    if
+#      input.between?(1, max_value)
+#      release_date = JordanReleases::Sneaker.month(@month)[input -1]
+#      display_release_date(title)
+#    else
+#      puts "Not valid, please select again"
+#      sneaker_release_titles
+#      choose_sneaker_release_date
+#    end
+#  end
+
+    def display_release_date(title)
+
+    end
+
     def release_titles
       puts "Would you like to see the release days for each sneaker (yes), see another (month), or exit (exit)?"
       @input = gets.strip

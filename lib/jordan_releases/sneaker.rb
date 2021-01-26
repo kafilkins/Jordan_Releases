@@ -15,6 +15,14 @@ class JordanReleases::Sneaker
       @@all
   end
 
+#  def self.release_month(month) #new code
+#    @@all.select {|sneakers| sneaker.month == month}
+#  end
+
+#  def self.release_date(title) #new code
+#    @all.select {|sneakers| sneaker.release_date == title}
+#  end
+
     def self.release_month_jan
       new_array = []
       self.all.each do |sneakers|
