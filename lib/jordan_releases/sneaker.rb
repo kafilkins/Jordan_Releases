@@ -23,6 +23,12 @@ class JordanReleases::Sneaker
 #    @all.select {|sneakers| sneaker.release_date == title}
 #  end
 
+  def self.release_month(month)
+  self.all.select do |sneaker|
+     sneaker.month == month
+    end
+  end
+
     def self.release_month_jan
       new_array = []
       self.all.each do |sneakers|
