@@ -7,21 +7,27 @@ class JordanReleases::CLI
           case get_chosen_month
       when 1
         sneaker_releases("Jan", "01")
+        release_titles
         sneaker_release_date("Jan")
       when 2
         sneaker_releases("Feb", "02")
+        release_titles
         sneaker_release_date("Feb")
       when 3
         sneaker_releases("Mar", "03")
+        release_titles
         sneaker_release_date("Mar")
       when 4
         sneaker_releases("Apr", "04")
+        release_titles
         sneaker_release_date("Apr")
       when 5
         sneaker_releases("May", "05")
+        release_titles
         sneaker_release_date("May")
       when 6
         sneaker_releases("Jun", "06")
+        release_titles
         sneaker_release_date("Jun")
       else
         puts "invalid"
@@ -104,7 +110,7 @@ class JordanReleases::CLI
       puts "Here are the releases for #{month}"
       JordanReleases::Scraper.scrape_sneaker_by_month(month_url)
       JordanReleases::Sneaker.release_month(month)
-      JordanReleases::Sneaker.sneaker_name(month)
+      JordanReleases::Sneaker.sneaker_title(month)
     end
 
     def january_sneaker_releases
