@@ -6,29 +6,23 @@ class JordanReleases::CLI
       until @input == "exit"
           case get_chosen_month
       when 1
-        sneaker_releases("January", "01")
-        #january_sneaker_releases
-      #  release_titles
+        sneaker_releases("Jan", "01")
+        sneaker_release_date("Jan")
       when 2
-        sneaker_releases("February", "02")
-      #  february_sneaker_releases
-        release_titles
+        sneaker_releases("Feb", "02")
+        sneaker_release_date("Feb")
       when 3
-        sneaker_releases("March", "03")
-      #  march_sneaker_releases
-        release_titles
+        sneaker_releases("Mar", "03")
+        sneaker_release_date("Mar")
       when 4
-        sneaker_releases("April", "04")
-      #  april_sneaker_releases
-        release_titles
+        sneaker_releases("Apr", "04")
+        sneaker_release_date("Apr")
       when 5
         sneaker_releases("May", "05")
-      #  may_sneaker_releases
-        release_titles
+        sneaker_release_date("May")
       when 6
-        sneaker_releases("June", "06")
-      #  june_sneaker_releases
-        release_titles
+        sneaker_releases("Jun", "06")
+        sneaker_release_date("Jun")
       else
         puts "invalid"
       end
@@ -36,37 +30,12 @@ class JordanReleases::CLI
   end
 
     def give_months
-      @months = ["January", "February", "March", "April", "May", "June"]
+      @months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
       puts "Choose a month to see sneaker releases"
       @months.each.with_index(1) do |month, index|
         puts "#{index}. #{month}"
     end
   end
-
-#  def sneaker_release_titles #new code
-#    JordanReleases::Sneaker.month(@month).each.with_index(1) do |sneaker, index|
-#      puts "#{index}. #{sneaker.title}"
-#    end
-#  end
-
-#  def choose_sneaker_release_date #new code
-#    input = gets.strip.to_i
-#    puts "Select a sneaker to see it's release date"
-#    max_value = JordanReleases::Sneaker.month(@month).length
-#    if
-#      input.between?(1, max_value)
-#      release_date = JordanReleases::Sneaker.month(@month)[input -1]
-#      display_release_date(title)
-#    else
-#      puts "Not valid, please select again"
-#      sneaker_release_titles
-#      choose_sneaker_release_date
-#    end
-#  end
-
-    def display_release_date(title)
-
-    end
 
     def release_titles
       puts "Would you like to see the release days for each sneaker (yes), see another (month), or exit (exit)?"
@@ -84,20 +53,24 @@ class JordanReleases::CLI
         end
     end
 
+    def sneaker_release_date(month)
+        JordanReleases::Sneaker.release_month(month)
+      end
+
     def exact_date
       puts "Type month..."
       @input = gets.strip
-      if @input == "January"
+      if @input == "Jan"
         JordanReleases::Sneaker.title_release_day_jan
-      elsif @input == "February"
+      elsif @input == "Feb"
         JordanReleases::Sneaker.title_release_day_feb
-      elsif @input == "March"
+      elsif @input == "Mar"
         JordanReleases::Sneaker.title_release_day_mar
-      elsif @input == "April"
+      elsif @input == "Apr"
         JordanReleases::Sneaker.title_release_day_apr
       elsif @input == "May"
         JordanReleases::Sneaker.title_release_day_may
-      elsif @input == "June"
+      elsif @input == "Jun"
         JordanReleases::Sneaker.title_release_day_jun
       else
         puts "invalid"
@@ -130,6 +103,8 @@ class JordanReleases::CLI
     def sneaker_releases(month, month_url)
       puts "Here are the releases for #{month}"
       JordanReleases::Scraper.scrape_sneaker_by_month(month_url)
+      JordanReleases::Sneaker.release_month(month)
+      JordanReleases::Sneaker.sneaker_name(month)
     end
 
     def january_sneaker_releases

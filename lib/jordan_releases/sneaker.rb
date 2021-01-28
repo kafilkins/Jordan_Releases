@@ -15,17 +15,27 @@ class JordanReleases::Sneaker
       @@all
   end
 
-#  def self.release_month(month) #new code
-#    @@all.select {|sneakers| sneaker.month == month}
-#  end
-
-#  def self.release_date(title) #new code
-#    @all.select {|sneakers| sneaker.release_date == title}
-#  end
-
   def self.release_month(month)
   self.all.select do |sneaker|
      sneaker.month == month
+    end
+  end
+
+  def self.sneaker_name(month)
+    self.release_month(month).each.with_index(1) do |name, index|
+      puts "#{index}. #{name.title}"
+    end
+  end
+
+  def self.sneaker_release_date(month)
+    self.all.select do |day|
+      day.release_date == month
+    end
+  end
+
+  def self.sneaker_name(month)
+    self.sneaker_release_date(month).each.with_index(1) do |day, index|
+      puts "#{index}. #{day.name}"
     end
   end
 
